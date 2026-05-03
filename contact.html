@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact - Blooming Oasis</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+.hero{
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+  url('https://images.unsplash.com/photo-1492724441997-5dc865305da7');
+  background-size: cover;
+  color:white;
+  padding:100px 0;
+}
+
+.chat-box{
+  display:none;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:300px;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.3);
+  padding:10px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- 🔷 Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🌿 Blooming Oasis</a>
+  </div>
+</nav>
+
+<!-- 🔷 Hero -->
+<div class="hero text-center">
+  <h1>Contact Us 📞</h1>
+  <p>We are here to help you with your plants 🌿</p>
+</div>
+
+<!-- 🔷 Contact Section -->
+<div class="container my-5">
+  <div class="row g-4">
+
+    <!-- Form -->
+    <div class="col-md-6">
+      <div class="card shadow p-4">
+        <h4>Send Message</h4>
+
+        <input class="form-control mb-3" placeholder="Your Name">
+        <input class="form-control mb-3" placeholder="Your Email">
+        <textarea class="form-control mb-3" placeholder="Your Message"></textarea>
+
+        <button class="btn btn-success w-100">Send Message</button>
+      </div>
+    </div>
+
+    <!-- Info + Map -->
+    <div class="col-md-6">
+      <div class="card shadow p-4">
+        <h4>Contact Info</h4>
+        <p>📍 Dhaka, Bangladesh</p>
+        <p>📞 +880 123456789</p>
+        <p>📧 info@bloomingoasis.com</p>
+
+        <!-- Map -->
+        <iframe src="https://www.google.com/maps?q=Dhaka&output=embed"
+        width="100%" height="200" style="border:0;"></iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 🔷 Live Chat Button -->
+<div class="text-center mb-5">
+  <button class="btn btn-success" onclick="openChat()">💬 Live Chat</button>
+</div>
+
+<!-- 🔷 Chat Box -->
+<div id="chatBox" class="chat-box">
+
+  <h6>🌿 Plant Specialist</h6>
+
+  <div id="messages" style="height:150px; overflow:auto; border:1px solid #eee; padding:5px; margin-bottom:10px;">
+    <p><b>Bot:</b> Hello! How can I help you?</p>
+  </div>
+
+  <input id="msg" class="form-control mb-2" placeholder="Type message">
+
+  <button class="btn btn-success w-100" onclick="sendMsg()">Send</button>
+
+</div>
+
+<!-- 🔷 Footer -->
+<footer class="text-center bg-success text-white p-3">
+  © 2026 Blooming Oasis 🌿
+</footer>
+
+<script>
+function openChat(){
+  document.getElementById("chatBox").style.display="block";
+}
+
+function sendMsg(){
+  let msg=document.getElementById("msg").value;
+  let box=document.getElementById("messages");
+
+  box.innerHTML += "<p><b>You:</b> "+msg+"</p>";
+  box.innerHTML += "<p><b>Bot:</b> We will help you soon 🌿</p>";
+
+  document.getElementById("msg").value="";
+}
+</script>
+
+</body>
+</html>
